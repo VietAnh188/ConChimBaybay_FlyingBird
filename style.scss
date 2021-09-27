@@ -1,0 +1,187 @@
+
+.element {
+
+
+    .charectorBox {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        margin: auto;
+        display: block;
+        margin-top: 10%;
+        animation: fly linear 100s infinite;
+
+
+        &-outter {
+
+            .right-hand {
+                position: absolute;
+                left: -20%;
+                top: 60%;
+                width: 150px;
+                height: 50px;
+                background-color: pink;
+                border-radius: 20% 20% 20% 100%;
+                animation: flapping-right linear 0.3s infinite;
+            }
+            .left-hand {
+                position: absolute;
+                right: -20%;
+                top: 60%;
+                width: 150px;
+                height: 50px;
+                background-color: pink;
+                border-radius: 20% 20% 100% 20%;
+                animation: flapping-left linear 0.3s infinite;
+            }
+            .right-feet {
+                position: absolute;
+                width: 80px;
+                height: 50px;
+                border-radius: 50%;
+                top: 95%;
+                left: 50px;
+                z-index: -1;
+                background-color: yellow;
+            }
+            .left-feet {
+                position: absolute;
+                width: 80px;
+                height: 50px;
+                border-radius: 50%;
+                top: 95%;
+                right: 50px;
+                z-index: -1;
+                background-color: yellow;
+            }
+        }
+
+        &-inner {
+            background-color: pink;
+            width: 100%;
+            height: 100%;
+            border-radius: 70% 70% 60% 60%;
+
+            .right-cheek {
+                position: absolute;
+                top: 20%;
+                right: 0;
+                background-color: white;
+                width: 60%;
+                height: 70%;
+                border-radius: 70% 70% 60% 60%;
+
+                .right-eye {
+                    width: 50px;
+                    height: 50px;
+                    background-color: black;
+                    margin: 50% auto 0;
+                    border-radius: 50%;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        background-color: white;
+                        width: 20px;
+                        height: 20px;
+                        top: 50%;
+                        right: 50%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .left-cheek {
+                position: absolute;
+                top: 20%;
+                left: 0;
+                background-color: white;
+                width: 60%;
+                height: 70%;
+                border-radius: 70% 70% 60% 60%;
+
+                .left-eye {
+                    width: 50px;
+                    height: 50px;
+                    background-color: black;
+                    margin: 50% auto 0;
+                    border-radius: 50%;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        background-color: white;
+                        width: 20px;
+                        height: 20px;
+                        top: 50%;
+                        left: 50%;
+                        border-radius: 50%;
+                    }
+                }
+            }
+            .top-beak {
+                position: absolute;
+                top: 70%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: yellow;
+                width: 50px;
+                height: 20px;
+                border-radius: 50%;
+            }
+            .bottom-beak {
+                position: absolute;
+                top: 73%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: yellow;
+                width: 40px;
+                height: 20px;
+                border-radius: 50%;
+            }
+        }
+    }
+
+}
+
+@keyframes flapping-right {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes flapping-left {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(20deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@keyframes fly {
+    @for $i from 1 through 50 {
+      #{($i * 2%)} {
+        transform: translate3d( (random(10) * 30px) , (random(10) * -20px), (random(10) * 20px) ) scale(random(5));
+      }
+    }
+  }
+//   rotate((random(540) * 1deg))
